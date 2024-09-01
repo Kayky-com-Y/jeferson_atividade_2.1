@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tela inicial</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/PBioEsfera.png" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href=""><img src="assets\images\LOGO.png" alt="" /></a>
+      <nav>
+        <ul>
+          <li><a href="{%  url 'index'%}">Início</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+            <div class="c2">
+                <img src= "{{ pessoa.image.url }}" alt="" />
+                <div class="text-block">
+                <h2 class="title-2">{{pessoa.nome}}</h2>
+                <p class="text-2">
+                    Idade: <span>{{pessoa.idade}}</span>
+                </p>
+                </p>
+                {% for descricoes in descricao %}
+                <p class="text-2"><span>parentesco: </span>{{descricoes.parentesco}}</p>
+                  <p class="text-2"><span>Descrição: </span>{{descricoes.descricao}}</p>
+                  <p class="text-2"><span>Interesses: </span>{{descricoes.interesses}}</p>
+                {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

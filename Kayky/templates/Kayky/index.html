@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tela inicial</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/PBioEsfera.png" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href=""><img src="assets\images\LOGO.png" alt="" /></a>
+      <nav>
+        <ul>
+          <li><a href="{%  url 'index'%}">Início</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="c0">
+        <p class="text-0">
+          Oi, esse sou eu, <span>Kayky Da Silva Batista</span> e atravéz desse site voçê conhecera mais sobre mim e minha familia, talvez possa até me <span>Contratar!</span> Agora sem mais delongas <span>Vamos</span> ver o site <span>Agora!</span>.
+        </p>
+      </div>
+        {% for pessoas in pessoa%}
+            <div class="c2">
+                <img src= "{{ pessoas.image.url }}" alt="" />
+                <div class="text-block">
+                <h2 class="title-2">{{pessoas.nome}}</h2>
+                <p class="text-2">
+                    Idade: <span>{{pessoas.idade}}</span>
+                </p>
+                </p>
+                <button class="Btn_cadastro">
+                <a href="{%  url 'detalhamento' pessoas.id  %}">Ver detalhes</a></button>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>
